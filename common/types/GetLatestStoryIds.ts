@@ -19,3 +19,7 @@ export interface GetLatestStoryIds {
    */
   hn_stories: GetLatestStoryIds_hn_stories[];
 }
+
+export interface GetLatestStoryIdsVariables {
+  minDate?: any | null;
+}

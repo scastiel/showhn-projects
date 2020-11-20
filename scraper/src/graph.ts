@@ -545,13 +545,14 @@ export const getFirstStoryId = async (): Promise<number | undefined> => {
 export const getLatestStoryIds = async () => {
   const { data } = await client.query<GetLatestStoryIds>({
     query: gql`
-      query GetLatestStoryIds {
-        hn_stories(where: { date: { _gte: "2020-11-15" } }) {
+      query GetLatestStoryIds($minDate: timestamptz) {
+        hn_stories(where: { date: { _gte: $minDate } }) {
           id
           score
         }
       }
     `,
+    variables: { minDate: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000) },
   })
   return data.hn_stories
 }
