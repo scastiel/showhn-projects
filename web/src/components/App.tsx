@@ -232,9 +232,9 @@ export const App = () => {
   }, [error, loading, stories, nbStories])
 
   useEffect(() => {
-    if (document.location.search) {
+    if (document.location.hash) {
       const values: Record<string, string> = Object.fromEntries(
-        document.location.search
+        document.location.hash
           .replace(/[?#]/, '')
           .split('&')
           .map((s) => s.split('='))
@@ -262,7 +262,7 @@ export const App = () => {
     const { filters, nbFilters, query } = createFilters(search, filtersSet)
     setFilters(filters)
     setNbFilters(nbFilters)
-    window.history.replaceState({}, '', query ? `?${query}` : '.')
+    window.history.replaceState({}, '', query ? `#${query}` : '.')
   }, [search, filtersSet])
 
   return (
