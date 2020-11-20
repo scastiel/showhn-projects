@@ -1,0 +1,4 @@
+[build]
+  command = "yarn web:build && yarn scraper:build"
+  functions = "./scraper/dist/functions"
+  publish = "./web/dist"

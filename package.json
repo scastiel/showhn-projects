@@ -1,0 +1,24 @@
+{
+  "name": "sidep",
+  "private": true,
+  "workspaces": [
+    "common",
+    "scraper",
+    "web"
+  ],
+  "scripts": {
+    "docker:start": "docker-compose up -d",
+    "web:run:dev": "yarn workspace sidep-web run:dev",
+    "web:build": "yarn workspace sidep-web build",
+    "scraper:run:dev": "yarn workspace sidep-scraper run:dev",
+    "scraper:build": "yarn workspace sidep-scraper build",
+    "apollo:gentypes": "apollo codegen:generate --target typescript --tagName=gql --outputFlat common/types",
+    "start": "netlify dev",
+    "hasura:pg_dump": "curl -X POST http://localhost:8080/v1alpha1/pg_dump -H 'x-hasura-admin-secret: supersecret' -d '{\"opts\":[\"-t\", \"hn_stories\", \"-t\", \"websites\", \"-t\", \"hn_users\", \"-t\", \"github_users\", \"-t\", \"twitter_users\", \"-c\", \"--if-exists\", \"-O\", \"-x\", \"--schema-only\", \"--schema\", \"public\"],\"clean_output\":true}' -H 'Content-Type: application/json'",
+    "hasura:export_metadata": "curl -X POST http://localhost:8080/v1/query -H 'x-hasura-admin-secret: supersecret' -d '{\"type\":\"export_metadata\",\"args\":{}}' -H 'Content-Type: application/json'"
+  },
+  "devDependencies": {
+    "apollo": "^2.31.1",
+    "netlify-cli": "^2.68.5"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "sidep-scraper",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "run:dev": "DOTENV_CONFIG_PATH=../.env ts-node -r dotenv/config"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.64",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "aws-lambda": "^1.0.6",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.13.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.22",
+    "apollo-boost": "^0.4.9",
+    "cheerio": "^1.0.0-rc.3",
+    "firebase": "^8.0.2",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
+    "node-fetch": "^2.6.1",
+    "sidep-common": "^1.0.0"
+  }
+}

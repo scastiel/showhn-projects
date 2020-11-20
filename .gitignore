@@ -1,0 +1,8 @@
+node_modules
+yarn-error.log
+.env
+.parcel-cache
+.cache
+dist
+apollo.config.js
+hn_stories*.txt
